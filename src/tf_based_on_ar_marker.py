@@ -9,6 +9,7 @@ if __name__ == "__main__":
     static_marker_link = rospy.get_param("static_marker_link", "ar_marker_link")
     ar_marker_link = rospy.get_param("ar_marker_link", "ar_marker_4")
     target_link = rospy.get_param("target_link", "head_camera")
+    dummy_target_link = rospy.get_param("dummy_target_link", "dummy_link")
 
     listener = tf.TransformListener()
 
@@ -22,7 +23,7 @@ if __name__ == "__main__":
             br.sendTransform((trans[0]-trans2[0], trans[1]-trans2[1], trans[2]-trans2[2]),
                              tf.transformations.quaternion_from_euler(math.atan2(trans[2]-trans2[2],trans[0]-trans2[0]), math.atan2(trans[0]-trans2[0], trans[2]-trans2[2]), math.atan2(trans[1]-trans2[1],trans[0]-trans2[0])),
                              rospy.Time.now(),
-                             "dummy_link",
+                             dummy_target_link,
                              parent_link)
             print trans
         except Exception as e:
