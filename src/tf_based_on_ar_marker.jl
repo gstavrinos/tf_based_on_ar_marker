@@ -9,10 +9,10 @@ rostypegen()
 
 function main()
     init_node("tf_based_on_ar_marker")
-    connected_marker_link = get_param("connected_marker_link", "ar_marker_link")
-    ar_marker_link = get_param("ar_marker_link", "ar_marker_4")
-    target_link = get_param("target_link", "head_camera")
-    disconnected_target_link = get_param("disconnected_target_link", "dummy_link")
+    connected_marker_link = get_param("~connected_marker_link", "ar_marker_link")
+    ar_marker_link = get_param("~ar_marker_link", "ar_marker_4")
+    target_link = get_param("~target_link", "head_camera")
+    disconnected_target_link = get_param("~disconnected_target_link", "dummy_link")
 
     listener = tf.TransformListener()
 
